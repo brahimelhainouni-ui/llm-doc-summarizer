@@ -1,0 +1,11 @@
+= My First Document
+
+== Introduction
+
+This is my first AsciiDoc document.
+I am learning how to build a document summarizer.
+
+== Python
+
+Python is a programming language.
+It is easy to learn and very useful for building applications.
