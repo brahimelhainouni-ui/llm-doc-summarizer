@@ -1,7 +1,19 @@
-# Open the ADOC file
 with open("example.adoc", "r", encoding="utf-8") as file:
-    text = file.read()
-# ascii cleaning
-text = text.replace("=", "")
-# Print the content
-print(text)
+    lines = file.readlines()
+
+clean_text = ""
+
+for line in lines:
+    line = line.strip()
+
+    # Skip empty lines
+    if line == "":
+        continue
+
+    # Remove AsciiDoc heading symbols at the start of lines
+    if line.startswith("="):
+        line = line.lstrip("=").strip()
+
+    clean_text += line + "\n"
+
+print(clean_text)
