@@ -1,19 +1,50 @@
-with open("example.adoc", "r", encoding="utf-8") as file:
-    lines = file.readlines()
+import os
 
-clean_text = ""
+from dotenv import load_dotenv
+from openai import OpenAI
 
-for line in lines:
-    line = line.strip()
 
-    # Skip empty lines
-    if line == "":
-        continue
+load_dotenv()
 
-    # Remove AsciiDoc heading symbols at the start of lines
-    if line.startswith("="):
-        line = line.lstrip("=").strip()
+client = OpenAI()
 
-    clean_text += line + "\n"
 
-print(clean_text)
+def clean_adoc(filename):
+    with open(filename, "r", encoding="utf-8") as file:
+        lines = file.readlines()
+
+    clean_text = ""
+
+    for line in lines:
+        line = line.strip()
+
+        if line == "":
+            continue
+
+        if line.startswith("="):
+            line = line.lstrip("=").strip()
+
+        clean_text += line + "\n"
+
+    return clean_text
+
+
+def summarize(text):
+    response = client.responses.create(
+        model="gpt-4o-mini",
+        instructions="You summarize documents. Write a short, clear summary.",
+        input=f"Summarize the following document:\n\n{text}",
+    )
+
+    return response.output_text
+
+
+if __name__ == "__main__":
+    text = clean_adoc("example.adoc")
+
+    print("Document:")
+    print(text)
+
+    print("\nSUMMARY:")
+    summary = summarize(text)
+    print(summary)
