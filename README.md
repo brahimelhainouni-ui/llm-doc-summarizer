@@ -6,6 +6,7 @@ Technologies:
 Python,
 OpenAI API,
 Streamlit,
+Docker,
 python-dotenv,
 AsciiDoc.
 
