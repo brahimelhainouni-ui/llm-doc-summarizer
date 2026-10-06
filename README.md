@@ -7,8 +7,12 @@ Python,
 OpenAI API,
 Streamlit,
 Docker,
+Docker compose,
 python-dotenv,
 AsciiDoc.
+
+Docker Compose is used to manage the application container and its environment configuration.
+
 
 Installation:
 
