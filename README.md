@@ -15,6 +15,7 @@ Installation:
 git clone https://github.com/brahimelhainouni-ui/llm-doc-summarizer.git
 
 cd llm-doc-summarizer
+
 2. Create a virtual environment
 python -m venv venv
 Activate it on Git Bash:
