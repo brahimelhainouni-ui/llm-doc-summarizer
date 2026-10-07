@@ -3,7 +3,7 @@ import streamlit as st
 from main import clean_adoc_text, summarize
 
 
-st.title("📄 AsciiDoc Summarizer")
+st.title(" AsciiDoc Summarizer")
 
 st.write("Upload an AsciiDoc file and get an AI-generated summary.")
 
@@ -19,21 +19,16 @@ if uploaded_file is not None:
 
     if st.button("Summarize"):
 
-        # Read the uploaded file.
         document_text = uploaded_file.getvalue().decode("utf-8")
 
-        # Clean the AsciiDoc before sending it to the AI.
         cleaned_text = clean_adoc_text(document_text)
 
-        # Generate the summary.
         with st.spinner("Creating summary..."):
             summary = summarize(cleaned_text)
 
-        # Display the result.
         st.subheader("Summary")
         st.write(summary)
 
-        # Allow the user to download the summary.
         st.download_button(
             label="Download Summary",
             data=summary,
