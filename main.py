@@ -4,10 +4,8 @@ from dotenv import load_dotenv
 from openai import OpenAI
 
 
-# Load environment variables from the .env file.
 load_dotenv()
 
-# Create the OpenAI client using the API key from the environment.
 client = OpenAI()
 
 
@@ -23,11 +21,9 @@ def clean_adoc_text(text):
     for line in text.splitlines():
         line = line.strip()
 
-        # Skip empty lines.
         if line == "":
             continue
 
-        # Remove AsciiDoc heading markers.
         if line.startswith("="):
             line = line.lstrip("=").strip()
 
