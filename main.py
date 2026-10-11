@@ -36,6 +36,9 @@ def clean_adoc(filename):
 
 
 def summarize(text):
+        """
+        Send document text to the OpenAI API and return a summary.
+        """
        response = client.responses.create(
         model="gpt-4o-mini",
         instructions="You summarize documents. Write a short, clear summary.",
