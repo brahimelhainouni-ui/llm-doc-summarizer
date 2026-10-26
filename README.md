@@ -1,6 +1,12 @@
 A simple python application that uses LLm to generate summaries from ascii(.adoc) documents.
 the project provides a small streamlit web intterface where the users can upload AsciiDoc file, clean its contents, generate an Ai powered summary , and then download the results as text file.
 
+> **Note:** The live application is temporarily offline.
+> Public access has been disabled to prevent unauthorized use
+> of my personal OpenAI API key and unexpected API costs.
+> You can still run the application locally using your own
+> OpenAI API key.
+
 Technologies:
 
 Python,
